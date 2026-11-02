@@ -1,0 +1,1243 @@
+/* ==========================================================================
+   PORTFÓLIO EMILY SILVA — ESTILO MINIMALISTA EDITORIAL
+   Paleta: Off-white (#F7F4EF), Grafite (#23201D), Lilás suave (#B8A1D9)
+   Tipografia: Cormorant Garamond (títulos) + Inter (corpo e interface)
+   ========================================================================== */
+
+/* --- Variáveis de Design --- */
+:root {
+  --color-bg: #F7F4EF;
+  --color-bg-header: rgba(247, 244, 239, 0.92);
+  --color-text: #23201D;
+  --color-text-muted: #4A443E; /* grafite secundário com contraste aprimorado (8.85:1 no off-white) */
+  --color-accent-soft: #B8A1D9; /* lilás suave de destaque */
+  --color-accent-deep: #7851A0; /* roxo refinado com contraste acessível WCAG AA (5.5:1) */
+  --color-line: #D9D1C7;
+  --color-line-subtle: #EBE5DC;
+  
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  --container-max-width: 1240px;
+  --header-height: 76px;
+  
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-default: 0.28s;
+}
+
+/* --- Reset e Configurações Básicas --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Link de acessibilidade para navegação por teclado */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1.5rem;
+  background: var(--color-text);
+  color: var(--color-bg);
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  z-index: 9999;
+  transition: top var(--duration-default) var(--ease-editorial);
+  text-decoration: none;
+  border-radius: 0 0 4px 4px;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--color-accent-deep);
+  outline-offset: 2px;
+}
+
+/* Foco visível acessível */
+:focus-visible {
+  outline: 2px solid var(--color-accent-deep);
+  outline-offset: 3px;
+}
+
+/* Margem de rolagem para âncoras não ficarem sob o cabeçalho fixo */
+section[id] {
+  scroll-margin-top: calc(var(--header-height) + 1.5rem);
+}
+
+/* Contêiner Geral */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/* ==========================================================================
+   CABEÇALHO & MENU DISCRETO
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--color-bg-header);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-line);
+  z-index: 1000;
+  transition: border-color var(--duration-default) ease, box-shadow var(--duration-default) ease, background-color var(--duration-default) ease;
+}
+
+.site-header.is-scrolled {
+  box-shadow: 0 4px 20px rgba(35, 32, 29, 0.05);
+  border-bottom-color: var(--color-line);
+  background-color: rgba(247, 244, 239, 0.96);
+}
+
+.header-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-link {
+  text-decoration: none;
+  color: var(--color-text);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.25rem 0;
+}
+
+.brand-name {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.brand-badge {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+/* Navegação Primária */
+.primary-nav {
+  display: block;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.4rem 0;
+  position: relative;
+  transition: color var(--duration-default) ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-accent-deep);
+  transition: width var(--duration-default) var(--ease-editorial);
+}
+
+.nav-link:hover {
+  color: var(--color-text);
+}
+
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  width: 100%;
+}
+
+.nav-link.is-active {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* Botão Hamburguer Mobile (Apenas em telas pequenas) */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  padding: 8px 6px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+
+.toggle-bar {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background-color: var(--color-text);
+  transition: transform var(--duration-default) ease, opacity var(--duration-default) ease;
+}
+
+/* ==========================================================================
+   SEÇÃO INÍCIO (HERO) — COMPOSIÇÃO EDITORIAL ASSIMÉTRICA
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 3.5rem;
+  padding-bottom: 4.5rem;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Faixa superior de metadados */
+.hero-meta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-line-subtle);
+  margin-bottom: 2rem;
+}
+
+.editorial-tag {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  color: var(--color-text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.accent-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-accent-soft);
+}
+
+.hero-location {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+/* Título em Grande Escala */
+.hero-title-wrapper {
+  margin-bottom: 2.5rem;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3.75rem, 11vw, 9.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+/* Grade Assimétrica Editorial */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 48px 1fr 280px;
+  column-gap: 3rem;
+  align-items: start;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-line);
+}
+
+/* Coluna 1: Linha e indicador vertical sutil */
+.hero-col-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding-top: 0.5rem;
+}
+
+.vertical-line {
+  width: 1px;
+  height: 72px;
+  background: linear-gradient(to bottom, var(--color-accent-soft), var(--color-line));
+}
+
+.indicator-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--color-text-muted);
+}
+
+/* Coluna 2: Conteúdo Principal e Frase */
+.hero-col-main {
+  max-width: 640px;
+}
+
+.hero-statement {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3.2vw, 2.35rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.hero-description {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  font-weight: 400;
+  margin-bottom: 2.25rem;
+}
+
+/* Botão / Link Editorial 'Explorar projeto' */
+.hero-action {
+  display: flex;
+}
+
+.btn-editorial {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 1rem 1.75rem;
+  border: 1px solid var(--color-text);
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--duration-default) var(--ease-editorial);
+}
+
+.btn-editorial::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-accent-soft);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all var(--duration-default) var(--ease-editorial);
+  z-index: 0;
+}
+
+.btn-editorial span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-arrow {
+  display: inline-block;
+  transition: transform var(--duration-default) var(--ease-editorial);
+}
+
+.btn-editorial:hover {
+  border-color: var(--color-accent-deep);
+  color: var(--color-text);
+}
+
+.btn-editorial:hover::before {
+  opacity: 0.25;
+  transform: translateY(0);
+}
+
+.btn-editorial:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+/* Coluna 3: Micro-blocos de Metadados Laterais */
+.hero-col-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-micro-card {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-line-subtle);
+}
+
+.hero-micro-card:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.micro-title {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.micro-text {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.35;
+}
+
+/* ==========================================================================
+   SEÇÃO 01 / SOBRE MIM — EDITORIAL CONTEMPORÂNEO
+   ========================================================================== */
+.about-section {
+  position: relative;
+  padding-top: 5.5rem;
+  padding-bottom: 6rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-line-subtle);
+  margin-bottom: 3.5rem;
+}
+
+.section-meta {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 440px) 1fr;
+  column-gap: 4.5rem;
+  align-items: start;
+}
+
+/* Coluna da Imagem */
+.about-media-col {
+  position: relative;
+}
+
+.about-figure {
+  margin: 0;
+  width: 100%;
+}
+
+.about-image-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-color: var(--color-line-subtle);
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 35%;
+  transition: transform 0.6s var(--ease-editorial);
+}
+
+.about-figure:hover .about-image {
+  transform: scale(1.02);
+}
+
+.about-caption {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.caption-line {
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background-color: var(--color-accent-soft);
+}
+
+/* Coluna de Texto */
+.about-content-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: 2rem;
+}
+
+.about-text-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.about-lead {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.about-text-body p:not(.about-lead) {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+/* Dados estruturados editorialmente */
+.about-details-list {
+  border-top: 1px solid var(--color-line);
+  margin-top: auto;
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--color-line-subtle);
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.detail-term {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.detail-desc {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   SEÇÃO 02 / PROJETOS — DESTAQUE EDITORIAL DE TCC ÚNICO
+   ========================================================================== */
+.projects-section {
+  position: relative;
+  padding-top: 5.5rem;
+  padding-bottom: 6rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.project-spotlight {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+}
+
+/* Bloco de Introdução: Título e Descrição */
+.project-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.2fr) 1fr;
+  column-gap: 4.5rem;
+  align-items: start;
+}
+
+.project-category {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-accent-deep);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.project-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+/* Link Editorial em Destaque para o Site Real */
+.project-action {
+  margin-top: 2.25rem;
+  display: flex;
+}
+
+.project-live-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.65rem 0;
+  border-bottom: 1.5px solid var(--color-text);
+  position: relative;
+  transition: color var(--duration-default) ease, border-color var(--duration-default) ease;
+}
+
+.project-live-link .link-arrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  line-height: 1;
+  color: var(--color-accent-deep);
+  transition: transform var(--duration-default) var(--ease-editorial), color var(--duration-default) ease;
+}
+
+.project-live-link:hover {
+  color: var(--color-accent-deep);
+  border-bottom-color: var(--color-accent-deep);
+}
+
+.project-live-link:hover .link-arrow {
+  transform: translate(3px, -3px);
+}
+
+.project-desc-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-objective {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+/* Stack Tecnológico com microtags editoriais */
+.tech-stack-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-top: 1px solid var(--color-line-subtle);
+  padding-top: 1.25rem;
+}
+
+.tech-stack-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.tech-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
+}
+
+.tech-tag {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text);
+  background-color: rgba(184, 161, 217, 0.12);
+  border: 1px solid var(--color-line);
+  padding: 0.35rem 0.85rem;
+  border-radius: 2px;
+  letter-spacing: 0.02em;
+}
+
+/* Módulos do Sistema: Apresentação Tipográfica com Linhas Finas */
+.project-features-block {
+  border-top: 1px solid var(--color-line);
+  padding-top: 3.5rem;
+}
+
+.features-headline {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 2.25rem;
+}
+
+.features-editorial-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 3rem;
+  row-gap: 2rem;
+}
+
+.feature-editorial-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--color-line-subtle);
+  transition: border-color var(--duration-default) ease;
+}
+
+.feature-editorial-item:hover {
+  border-top-color: var(--color-accent-deep);
+}
+
+.feature-num {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--color-accent-deep);
+  font-weight: 500;
+}
+
+.feature-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.feature-name {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.25;
+}
+
+.feature-text {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   SEÇÃO 03 / CONTATO — LINHAS EDITORIAIS & CANAIS REAIS
+   ========================================================================== */
+.contact-section {
+  position: relative;
+  padding-top: 5.5rem;
+  padding-bottom: 7rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(340px, 1.25fr);
+  column-gap: 5rem;
+  align-items: start;
+}
+
+.contact-intro-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+}
+
+.contact-description {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  font-weight: 400;
+  max-width: 480px;
+}
+
+/* Lista de canais diretos */
+.contact-channels-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.channels-list {
+  border-top: 1px solid var(--color-line);
+  display: flex;
+  flex-direction: column;
+}
+
+.channel-link-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--color-line);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: all var(--duration-default) var(--ease-editorial);
+  position: relative;
+}
+
+.channel-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.channel-type {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.channel-address {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+  font-weight: 500;
+  color: var(--color-text);
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  transition: color var(--duration-default) ease;
+}
+
+.channel-arrow {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-accent-deep);
+  transition: transform var(--duration-default) var(--ease-editorial), color var(--duration-default) ease;
+}
+
+.channel-link-item:hover {
+  border-bottom-color: var(--color-accent-deep);
+}
+
+.channel-link-item:hover .channel-address {
+  color: var(--color-accent-deep);
+}
+
+.channel-link-item:hover .channel-arrow {
+  transform: translate(4px, -4px);
+  color: var(--color-accent-deep);
+}
+
+/* ==========================================================================
+   RODAPÉ DISCRETO
+   ========================================================================== */
+.site-footer {
+  border-top: 1px solid var(--color-line);
+  padding: 2.25rem 0;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  background-color: var(--color-bg);
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.footer-left,
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.footer-name {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.footer-dot {
+  color: var(--color-accent-soft);
+}
+
+.back-to-top-link {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color var(--duration-default) ease;
+}
+
+.back-to-top-link:hover {
+  color: var(--color-accent-deep);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (360px a Desktop)
+   ========================================================================== */
+@media (max-width: 960px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    row-gap: 2.5rem;
+  }
+
+  .hero-col-indicator {
+    display: none;
+  }
+
+  .hero-col-aside {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-line-subtle);
+  }
+
+  .hero-micro-card {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  /* Sobre Mim: Grid e Imagem */
+  .about-grid {
+    grid-template-columns: 1fr;
+    row-gap: 3.5rem;
+  }
+
+  .about-media-col {
+    max-width: 420px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* Projetos: Grid de introdução e módulos */
+  .project-intro-grid {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+
+  .features-editorial-list {
+    grid-template-columns: 1fr;
+    row-gap: 2.25rem;
+  }
+
+  /* Contato: Grid responsivo */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    row-gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 68px;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .primary-nav {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-line);
+    padding: 1.5rem 1.5rem 2rem;
+    box-shadow: 0 12px 30px rgba(35, 32, 29, 0.06);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity var(--duration-default) var(--ease-editorial), transform var(--duration-default) var(--ease-editorial), visibility var(--duration-default);
+    pointer-events: none;
+  }
+
+  .primary-nav.is-open {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  /* Hamburguer animado */
+  .nav-toggle[aria-expanded="true"] .toggle-bar:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+  }
+
+  .nav-toggle[aria-expanded="true"] .toggle-bar:nth-child(2) {
+    transform: translateY(-3.5px) rotate(-45deg);
+  }
+
+  .hero-section {
+    padding-top: 2.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-meta-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .hero-col-aside {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .brand-badge {
+    display: none;
+  }
+
+  /* Sobre Mim: Espaçamento mobile */
+  .about-section {
+    padding-top: 3.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Projetos: Espaçamento mobile */
+  .projects-section {
+    padding-top: 3.5rem;
+    padding-bottom: 4rem;
+  }
+
+  /* Contato e Rodapé: Espaçamento mobile */
+  .contact-section {
+    padding-top: 3.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: clamp(2.85rem, 12vw, 3.8rem);
+    line-height: 1.02;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .about-title {
+    font-size: clamp(2.1rem, 8vw, 2.75rem);
+    line-height: 1.1;
+  }
+
+  .project-title {
+    font-size: clamp(1.85rem, 7vw, 2.35rem);
+    line-height: 1.15;
+  }
+
+  .contact-title {
+    font-size: clamp(2.2rem, 8.5vw, 2.9rem);
+    line-height: 1.08;
+  }
+
+  .about-media-col {
+    max-width: 360px;
+  }
+
+  .btn-editorial {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .project-action {
+    margin-top: 1.5rem;
+  }
+
+  .detail-row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+    padding: 0.85rem 0;
+  }
+
+  .about-lead {
+    font-size: 1.15rem;
+  }
+
+  .channel-link-item {
+    padding: 1.25rem 0;
+  }
+
+  .channel-address {
+    font-size: 1.0625rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-title {
+    font-size: 2.65rem;
+  }
+
+  .project-title {
+    font-size: 1.75rem;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .btn-editorial {
+    padding: 0.85rem 1.15rem;
+    font-size: 0.8125rem;
+  }
+
+  .features-headline {
+    font-size: 0.6875rem;
+  }
+}
+
+/* ==========================================================================
+   ACESSIBILIDADE: REDUÇÃO DE MOVIMENTO
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

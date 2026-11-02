@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio de Emily Silva — Estudante de Informática com interesse em desenvolvimento de software e criação de soluções digitais.">
+  <title>Emily Silva — Portfólio</title>
+
+  <!-- Google Fonts: Cormorant Garamond (editorial) & Inter (leitura) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="#inicio" class="skip-link">Pular para o conteúdo principal</a>
+
+  <!-- Cabeçalho e navegação discreta -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner container">
+      <div class="header-brand">
+        <a href="#inicio" class="brand-link" aria-label="Emily Silva - Início">
+          <span class="brand-name">Emily Silva</span>
+          <span class="brand-badge">Campinas, SP</span>
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menu de navegação">
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Navegação primária">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#inicio" class="nav-link is-active">Início</a></li>
+          <li class="nav-item"><a href="#sobre" class="nav-link">Sobre</a></li>
+          <li class="nav-item"><a href="#projetos" class="nav-link">Projetos</a></li>
+          <li class="nav-item"><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Seção Início (Hero) com composição assimétrica editorial -->
+    <section class="hero-section" id="inicio" aria-labelledby="hero-title">
+      <div class="container hero-container">
+        
+        <!-- Faixa superior de metadados editoriais -->
+        <div class="hero-meta-bar">
+          <span class="editorial-tag"><span class="accent-dot" aria-hidden="true"></span> 00 / INÍCIO</span>
+          <span class="hero-location">Estudante de Informática • RDS 2026</span>
+        </div>
+
+        <!-- Tipografia do nome em grande escala -->
+        <div class="hero-title-wrapper">
+          <h1 class="hero-title" id="hero-title">Emily Silva</h1>
+        </div>
+
+        <!-- Grade assimétrica com espaço negativo intencional -->
+        <div class="hero-grid">
+          <div class="hero-col-indicator" aria-hidden="true">
+            <span class="vertical-line"></span>
+            <span class="indicator-label">PORTFÓLIO</span>
+          </div>
+
+          <div class="hero-col-main">
+            <p class="hero-statement">Tecnologia, criatividade e desenvolvimento.</p>
+            <p class="hero-description">
+              Estudante de Informática com interesse em desenvolvimento de software e criação de soluções digitais.
+            </p>
+            <div class="hero-action">
+              <a href="#projetos" class="btn-editorial">
+                <span>Explorar projeto</span>
+                <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-col-aside">
+            <div class="hero-micro-card">
+              <h2 class="micro-title">Perfil</h2>
+              <p class="micro-text">Desenvolvimento Web &amp; Software</p>
+            </div>
+            <div class="hero-micro-card">
+              <h2 class="micro-title">Status</h2>
+              <p class="micro-text">Formação Técnica RDS (Conclusão 2026)</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Seção 01 / Sobre Mim com Apresentação Editorial e Fotografia Real -->
+    <section class="about-section" id="sobre" aria-labelledby="about-title">
+      <div class="container about-container">
+        
+        <!-- Faixa de cabeçalho da seção -->
+        <header class="section-header">
+          <span class="editorial-tag"><span class="accent-dot" aria-hidden="true"></span> 01 / SOBRE</span>
+          <span class="section-meta">Campinas, SP • Formação Técnica</span>
+        </header>
+
+        <div class="about-grid">
+          <!-- Coluna visual: Fotografia real editorial em proporção vertical 4:5 -->
+          <div class="about-media-col">
+            <figure class="about-figure">
+              <div class="about-image-frame">
+                <img 
+                  src="assets/foto-emily.jpg" 
+                  alt="Retrato de Emily Silva com blazer preto diante de um fundo claro." 
+                  class="about-image"
+                  width="1254"
+                  height="1254"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+              <figcaption class="about-caption">
+                <span class="caption-line" aria-hidden="true"></span>
+                <span>Emily Silva — Campinas, SP</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <!-- Coluna textual: Trajetória, formação e interesses -->
+          <div class="about-content-col">
+            <h2 class="about-title" id="about-title">Sobre mim</h2>
+            
+            <div class="about-text-body">
+              <p class="about-lead">
+                Sou estudante do Ensino Médio integrado ao Técnico em Informática no Instituto Educacional Raphael Di Santo, em Campinas.
+              </p>
+              <p>
+                Tenho interesse em desenvolvimento de software, interfaces e soluções digitais que unam organização, funcionalidade e criatividade. Durante minha formação, adquiri conhecimentos em programação e desenvolvimento web.
+              </p>
+              <p>
+                O voleibol, que faz parte da minha trajetória, inspirou meu projeto de conclusão de curso.
+              </p>
+            </div>
+
+            <!-- Dados breves estruturados editorialmente com linhas finas -->
+            <div class="about-details-list">
+              <div class="detail-row">
+                <span class="detail-term">Formação</span>
+                <span class="detail-desc">Ensino Médio e Técnico em Informática</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-term">Instituição</span>
+                <span class="detail-desc">Instituto Educacional Raphael Di Santo (RDS)</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-term">Previsão</span>
+                <span class="detail-desc">2026</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-term">Áreas</span>
+                <span class="detail-desc">Desenvolvimento Web, Programação, Interfaces Digitais</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Seção 02 / Projetos — Destaque Editorial de Trabalho de Conclusão de Curso (TCC) -->
+    <section class="projects-section" id="projetos" aria-labelledby="project-title">
+      <div class="container projects-container">
+
+        <!-- Faixa de cabeçalho da seção -->
+        <header class="section-header">
+          <span class="editorial-tag"><span class="accent-dot" aria-hidden="true"></span> 02 / PROJETOS</span>
+          <span class="section-meta">Trabalho de Conclusão de Curso • TCC</span>
+        </header>
+
+        <!-- Artigo editorial dedicado ao único projeto real -->
+        <article class="project-spotlight">
+          
+          <!-- Bloco Superior: Título, Contexto e Descrição -->
+          <div class="project-intro-grid">
+            <div class="project-title-col">
+              <span class="project-category">Aplicação Web &bull; Voleibol</span>
+              <h2 class="project-title" id="project-title">Sistema de Scout Esportivo para Voleibol</h2>
+              
+              <!-- Link editorial em destaque para o site real do projeto -->
+              <div class="project-action">
+                <a 
+                  href="https://scout-voleibol-tcc.vercel.app/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="project-live-link" 
+                  aria-label="Explorar projeto Sistema de Scout Esportivo para Voleibol (abre em nova aba)"
+                >
+                  <span>Explorar projeto</span>
+                  <span class="link-arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+            
+            <div class="project-desc-col">
+              <p class="project-objective">
+                Aplicação web desenvolvida como Trabalho de Conclusão de Curso para registrar e analisar informações de partidas de voleibol. O projeto reúne organização de jogos, registro de ações durante a partida e apresentação de estatísticas que auxiliam a análise técnica.
+              </p>
+              
+              <!-- Tecnologias utilizadas no sistema -->
+              <div class="tech-stack-wrapper">
+                <span class="tech-stack-label">Tecnologias:</span>
+                <ul class="tech-tag-list" aria-label="Tecnologias utilizadas no projeto">
+                  <li class="tech-tag">React</li>
+                  <li class="tech-tag">JavaScript</li>
+                  <li class="tech-tag">HTML5</li>
+                  <li class="tech-tag">CSS3</li>
+                  <li class="tech-tag">Figma</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Três funcionalidades como partes integrantes do mesmo sistema -->
+          <div class="project-features-block">
+            <h3 class="features-headline">Módulos integrados do sistema</h3>
+            
+            <div class="features-editorial-list">
+              <div class="feature-editorial-item">
+                <span class="feature-num" aria-hidden="true">01</span>
+                <div class="feature-info">
+                  <h4 class="feature-name">Scout ao vivo</h4>
+                  <p class="feature-text">
+                    Registro de ações e fundamentos técnicos em quadra no decorrer da partida, permitindo anotações em tempo real com agilidade.
+                  </p>
+                </div>
+              </div>
+
+              <div class="feature-editorial-item">
+                <span class="feature-num" aria-hidden="true">02</span>
+                <div class="feature-info">
+                  <h4 class="feature-name">Visualização de jogos</h4>
+                  <p class="feature-text">
+                    Organização e acompanhamento estruturado dos confrontos, escalações e histórico de dados de cada partida disputada.
+                  </p>
+                </div>
+              </div>
+
+              <div class="feature-editorial-item">
+                <span class="feature-num" aria-hidden="true">03</span>
+                <div class="feature-info">
+                  <h4 class="feature-name">Filtros e gráficos estatísticos</h4>
+                  <p class="feature-text">
+                    Consolidação analítica de desempenho com filtros personalizados e apresentação visual de métricas para suporte à análise técnica.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Seção 03 / Contato — Linhas Editoriais e Canais Reais -->
+    <section class="contact-section" id="contato" aria-labelledby="contact-title">
+      <div class="container contact-container">
+
+        <!-- Faixa de cabeçalho da seção -->
+        <header class="section-header">
+          <span class="editorial-tag"><span class="accent-dot" aria-hidden="true"></span> 03 / CONTATO</span>
+          <span class="section-meta">Canais Oficiais &bull; Campinas, SP</span>
+        </header>
+
+        <div class="contact-grid">
+          <div class="contact-intro-col">
+            <h2 class="contact-title" id="contact-title">Vamos conversar?</h2>
+            <p class="contact-description">
+              Estou à disposição para oportunidades na área de desenvolvimento web e tecnologia, parcerias acadêmicas ou troca de experiências sobre projetos.
+            </p>
+          </div>
+
+          <!-- Lista de canais diretos com linhas finas e sem formulário fictício -->
+          <div class="contact-channels-col">
+            <div class="channels-list">
+              
+              <a href="mailto:emilyca1404@gmail.com" class="channel-link-item" aria-label="Enviar e-mail para emilyca1404@gmail.com">
+                <div class="channel-details">
+                  <span class="channel-type">E-mail pessoal</span>
+                  <span class="channel-address">emilyca1404@gmail.com</span>
+                </div>
+                <span class="channel-arrow" aria-hidden="true">↗</span>
+              </a>
+
+              <a href="https://www.linkedin.com/in/emily-silva-135913328" target="_blank" rel="noopener noreferrer" class="channel-link-item" aria-label="Abrir perfil no LinkedIn em nova aba">
+                <div class="channel-details">
+                  <span class="channel-type">LinkedIn profissional</span>
+                  <span class="channel-address">linkedin.com/in/emily-silva-135913328</span>
+                </div>
+                <span class="channel-arrow" aria-hidden="true">↗</span>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé Discreto -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <span class="footer-name">Emily Silva</span>
+        <span class="footer-dot" aria-hidden="true">•</span>
+        <span class="footer-role">Estudante de Informática (RDS Campinas)</span>
+      </div>
+      <div class="footer-right">
+        <span class="footer-year">2026</span>
+        <span class="footer-dot" aria-hidden="true">•</span>
+        <a href="#inicio" class="back-to-top-link">Voltar ao topo <span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

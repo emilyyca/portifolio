@@ -1,0 +1,12 @@
+PORTFÓLIO EMILY — DO ZERO — ESTILO MINIMALISTA EDITORIAL
+
+1) Extraia este ZIP em uma NOVA pasta, sem misturar com o projeto antigo.
+2) Confirme que a pasta assets contém foto-emily.jpg (a foto real enviada).
+3) No Google Antigravity: Open Folder / Open Workspace -> selecione esta pasta.
+4) Abra PROMPTS-ANTIGRAVITY.md e cole APENAS o PROMPT 1 no chat do agente.
+5) Confira o resultado no navegador; só depois use PROMPT 2 (ele já sabe onde está a foto).
+6) Continue os prompts 3, 4, 5 e 6, testando após cada etapa.
+7) Os arquivos HTML/CSS/JS serão CRIADOS pelo Antigravity, não vêm prontos neste ZIP.
+8) Para publicar, use GitHub e Vercel. Entregue também um documento de referências de 1 página, com 3–5 exemplos realmente observados.
+9) Se o Antigravity não encontrar a foto, verifique nome e extensão exatamente: assets/foto-emily.jpg.
+10) IMPORTANTE: o professor indicou entrega em 01/11; confirme no Classroom se o envio ainda está habilitado.
